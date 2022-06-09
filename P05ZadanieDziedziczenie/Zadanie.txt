@@ -1,0 +1,23 @@
+﻿
+Tworzysz progrm do generowania raportow 
+w postaci plikow csv, html i sql
+
+kazdy z plikow posiada zawartosc, autor i sciezka
+
+kazdy z plikow powinien byc reperentowany przez 
+osobna klase 
+
+Stworz metode "Zapisz", ktora pozwala zapisac wszystkie rodzaje plikow
+w petli . kazdy plik "wie" z jakim rozszerzeniem ma sie zapisac 
+kazdy plik formatuje sie wedlug zasady:
+gdy zawartosc to "ala ma kota"
+
+html:
+<html>
+<body>
+<p>ala ma kota</p>
+</body>
+</html>
+
+csv: ala;ma;kota
+sql: SELECT * from ala ma kota 

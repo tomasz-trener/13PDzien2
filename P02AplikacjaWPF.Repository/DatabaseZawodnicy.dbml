@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Zawodnicy" Class="DatabaseZawodnicyDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=Zawodnicy;User ID=sa" SettingsObjectName="P02AplikacjaWPF.Repository.Properties.Settings" SettingsPropertyName="ZawodnicyConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Zawodnik" Member="Zawodniks">
+    <Type Name="Zawodnik">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="imie" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="nazwisko" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="kraj" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="dataUr" Type="System.DateTime" DbType="DateTime2" CanBeNull="true" />
+      <Column Name="wzrost" Type="System.Decimal" DbType="Decimal(5,2)" CanBeNull="true" />
+      <Column Name="waga" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
