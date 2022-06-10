@@ -55,6 +55,35 @@ namespace P01AplikacjaWPF.ViewModel
 
         public bool WagaWidoczna { get => Waga > 60; }
 
-        public double? BMI { get => Waga/ Math.Pow(Convert.ToDouble(Wzrost)/100,2); }
+        public double? BMI { get => Waga / Math.Pow(Convert.ToDouble(Wzrost) / 100, 2); }
+
+        public Dictionary<string, string> DaneSlownikowe
+        {
+            get
+            {
+                var dic = new Dictionary<string, string>();
+                dic.Add("DataUr", DataUr?.ToString("dd-MM-yyyy"));
+                dic.Add("Waga", Waga.ToString());
+                dic.Add("Wzrost", Wzrost.ToString());
+                dic.Add("BMI", BMI.ToString());
+                return dic;
+            }
+        }
+
+        public List<KeyValuePair<string, string>> DaneSlownikowe2
+        {
+            get
+            {
+                return new List<KeyValuePair<string, string>>()
+                {
+                    new KeyValuePair<string, string>("DataUr",DataUr?.ToString("dd-MM-yyyy")) ,
+                    new KeyValuePair<string, string>("Waga", Waga.ToString()) ,
+                    new KeyValuePair<string, string>("Wzrost",Wzrost.ToString()) ,
+                    new KeyValuePair<string, string>("BMI",BMI.ToString())
+                };
+
+
+            }
+        }
     }
 }

@@ -4,17 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:P01AplikacjaWPF"
+        xmlns:vm="clr-namespace:P01AplikacjaWPF.ViewModel"
+        xmlns:controls="clr-namespace:P01AplikacjaWPF.Controls"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVisConv"></BooleanToVisibilityConverter>
+        <vm:MainWindowViewModel x:Key="vmMainModel"></vm:MainWindowViewModel>
     </Window.Resources>
+
     
-    <Grid>
+
+        <Grid DataContext="{StaticResource vmMainModel}">
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"></ColumnDefinition>
+            <ColumnDefinition Width="100"></ColumnDefinition>   
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -22,11 +27,14 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
+
+        <controls:MainHeader Grid.ColumnSpan="2"></controls:MainHeader>
+
         <StackPanel Grid.Column="0" Grid.Row="1">
             <Button x:Name="btnLoadData" Click="btnLoadData_Click" Margin="20" Content="Load data"></Button>
         </StackPanel>
         
-        <ListView x:Name="lvData" Margin="15" Grid.Column="1" Grid.Row="1">
+        <ListView ItemsSource="{Binding ZawodnicyData, Mode=OneWay}" x:Name="lvData" Margin="15" Grid.Column="1" Grid.Row="1">
 
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -42,7 +50,7 @@
                         </StackPanel>
 
                         
-                        <Grid>
+                        <Grid >
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition ></ColumnDefinition>
                                 <ColumnDefinition></ColumnDefinition>
@@ -54,14 +62,14 @@
                                 <RowDefinition></RowDefinition>
                             </Grid.RowDefinitions>
 
-                            <TextBlock Grid.Row="0" FontWeight="Bold" Grid.Column="0" Text="Data ur: "></TextBlock>
-                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding DataUr, StringFormat={}{0:dd-MM-yyyy}}"></TextBlock>
-                            <TextBlock Grid.Row="1"   FontWeight="Bold" Grid.Column="0" Text="Wzrost: "></TextBlock>
-                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Wzrost}"></TextBlock>
-                            <TextBlock Visibility="{Binding WagaWidoczna, Converter={StaticResource BoolToVisConv}, Mode=OneWay}" Grid.Row="2" FontWeight="Bold" Grid.Column="0" Text="Waga: "></TextBlock>
-                            <TextBlock Visibility="{Binding WagaWidoczna, Converter={StaticResource BoolToVisConv}, Mode=OneWay}" Grid.Row="2" Grid.Column="1" Text="{Binding Waga}"></TextBlock>
-                            <TextBlock Grid.Row="3" FontWeight="Bold" Grid.Column="0" Text="BMI: "></TextBlock>
-                            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding BMI , StringFormat={}{0:0.00}}"></TextBlock>
+                            <TextBlock Grid.Row="0" FontWeight="Bold" Grid.Column="0" Text="{Binding Path=DaneSlownikowe2[0].Key}"></TextBlock>
+                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Path=DaneSlownikowe2[0].Value}"></TextBlock>
+                            <TextBlock Grid.Row="1"   FontWeight="Bold" Grid.Column="0" Text="{Binding Path=DaneSlownikowe2[1].Key}"></TextBlock>
+                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Path=DaneSlownikowe2[1].Value}"></TextBlock>
+                            <TextBlock Visibility="{Binding WagaWidoczna, Converter={StaticResource BoolToVisConv}, Mode=OneWay}" Grid.Row="2" FontWeight="Bold" Grid.Column="0" Text="{Binding Path=DaneSlownikowe2[2].Key}"></TextBlock>
+                            <TextBlock Visibility="{Binding WagaWidoczna, Converter={StaticResource BoolToVisConv}, Mode=OneWay}" Grid.Row="2" Grid.Column="1" Text="{Binding Path=DaneSlownikowe2[2].Value}"></TextBlock>
+                            <TextBlock Grid.Row="3" FontWeight="Bold" Grid.Column="0" Text="{Binding Path=DaneSlownikowe2[3].Key}"></TextBlock>
+                            <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding Path=DaneSlownikowe2[3].Value , StringFormat={}{0:0.00}}"></TextBlock>
 
                         </Grid>
                         

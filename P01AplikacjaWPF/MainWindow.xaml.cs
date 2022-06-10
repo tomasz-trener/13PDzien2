@@ -31,17 +31,17 @@ namespace P01AplikacjaWPF
 
         private void btnLoadData_Click(object sender, RoutedEventArgs e)
         {     
-            ZawodnicyRepository zr = new ZawodnicyRepository();
-            var data= zr.GetData();
+            //ZawodnicyRepository zr = new ZawodnicyRepository();
+            //var data= zr.GetData();
            
-            var dataVM = data
-                .Select(x => new ZawodnikViewModel(x)).ToArray();
+            //var dataVM = data
+            //    .Select(x => new ZawodnikViewModel(x)).ToArray();
 
-            //ZawodnikViewModel[] dataVM2 = new ZawodnikViewModel[data.Length];
-            //for (int i = 0; i < data.Length; i++)
-            //    dataVM2[i] = new ZawodnikViewModel(data[i]);
+            ////ZawodnikViewModel[] dataVM2 = new ZawodnikViewModel[data.Length];
+            ////for (int i = 0; i < data.Length; i++)
+            ////    dataVM2[i] = new ZawodnikViewModel(data[i]);
 
-            lvData.ItemsSource = dataVM;
+            //lvData.ItemsSource = dataVM;
         }
     }
 }
