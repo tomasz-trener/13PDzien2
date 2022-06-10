@@ -85,5 +85,9 @@ namespace P01AplikacjaWPF.ViewModel
 
             }
         }
+
+        //https://github.com/tomasz-trener/13PDzien1
+        //https://github.com/tomasz-trener/13PDzien2
+        //https://www.alx.pl/ankiety/4768gxbw
     }
 }
